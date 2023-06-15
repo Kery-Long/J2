@@ -1,0 +1,26 @@
+App{
+    display: flex;
+    flex-direction: column;
+    padding: 1em;
+    margin:2em;
+}
+.book-list{
+    list-style-type: square;
+    display: flex;
+    -ms-flex-align: end;
+}
+.bookform{
+    display:flex;
+    width:50%;
+    -ms-flex-align: start;
+    
+}
+#home{
+    display:flex;
+    flex-direction: column;
+    .main{
+        display: flex;
+        flex-direction: row;
+        padding-left:1.5em;
+        padding-right:1.5em;
+    }}
