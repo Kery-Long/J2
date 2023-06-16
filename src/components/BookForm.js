@@ -45,6 +45,12 @@ export default function BookForm() {
     setNewNotes('')
     setNewMoodEmoji()
   }
+  let emojis = [
+  { id: 1, name: 'happy', image: 'gs://book-list-8c209.appspot.com/smile.jpg' },
+  { id: 2, name: 'sad', image: 'gs://book-list-8c209.appspot.com/sad.jpg' },
+  { id: 3, name: 'sick', image: 'gs://book-list-8c209.appspot.com/sick.jpg' },
+  { id: 4, name: 'mad', image: 'gs://book-list-8c209.appspot.com/angry.jpg' },
+];
 
   return (
     <form onSubmit={handleSubmit}>
@@ -80,20 +86,21 @@ export default function BookForm() {
           onChange={(e) => setNewBook(e.target.value)}
           value={newBook}
         />
-        <div className='emojis'>
-        <label><input type="radio" name="test" value={happy} classNme='emoti' src = '.../images/smile.jpg'unchecked onChange={(e) => setNewMoodEmoji (e.target.src)}/>
-  <img src ={happy} alt="Option 1" />
-  </label>
-        <label><input type="radio" name="test" value={sad} classNme='emoti' src = '../images/sad.jpg'unchecked onChange={(e) => setNewMoodEmoji (e.target.src)}/>
-  <img src={sad} alt="Option 1" />
-  </label>
-        <label><input type="radio" name="test" value={sick} classNme='emoti' src = '../images/sick.jpg'unchecked onChange={(e) => setNewMoodEmoji (e.target.src)}/>
-  <img src={sick} alt="Option 1" />
-  </label>
-        <label><input type="radio" name="test" value={mad}classNme='emoti' src = '../images/angry.jpg' unchecked onChange={(e) => setNewMoodEmoji (e.target.src)}/>
-  <img src={mad} alt="Option 1" />
-  </label>
-</div>
+ <div className='emojis'>
+    {emojis.map((currEmoji) => (
+      <label>
+        <input
+          type='radio'
+          classNme='emoti'
+          name={currEmoji.name}
+          src={currEmoji.image}
+          unchecked
+          onChange={(e) => setNewMoodEmoji(currEmoji.image)}
+        />
+        <img src={happy} alt='Option 1' />
+      </label>
+    ))}
+  </div>
         
       </label>
       <label>Notes:
