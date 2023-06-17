@@ -87,7 +87,10 @@ export default function BookForm() {
           value={newBook}
         />
  <div className='emojis'>
+  
+
     {emojis.map((currEmoji) => (
+      
       <label>
         <input
           type='radio'

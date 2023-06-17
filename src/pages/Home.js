@@ -14,6 +14,8 @@ export default function Home() {
  const {documents: books } = useCollection(
   'books',
   ['uid', '==', user.uid])
+  // console.log('books is', books) 
+ 
 
   return (
     <div className="App" id="home">

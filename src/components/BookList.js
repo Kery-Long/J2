@@ -5,7 +5,11 @@ import Card from 'react-bootstrap/Card'
 import '../styles/bookList.css'
 
 
-export default function BookList({ ...books }) {
+export default function BookList({books}) {
+  
+// const {documents: books } = useCollection(
+//   'books',
+//   ['uid', '==', user.uid])
 
 
   const handleClick = async (id) => {
@@ -21,20 +25,20 @@ export default function BookList({ ...books }) {
     <div className="book-list">
 
 
-     
+
         {books.map(book => (
           <Card className = 'card'
           key={book.id} onClick={() => handleClick(book.id)}>
             <div className="card-body">
-            <h2 class="card-title">{book.date} at {book.time}</h2>
-            
-            <h4 class="card-subtitle mb-2 text-muted">{book.title}</h4>
-            <p class="card-text">{book.notes}</p>
-            <img className='emoji'src={book.emoji}  alt='selected emoji'/>
+            <h2 className="card-title">{book.date} at {book.time}</h2>
+
+            <h4 className="card-subtitle mb-2 text-muted">{book.title}</h4>
+            <p className="card-text">{book.notes}</p>
+            <pimg className='emoji'src={book.emoji} />
             </div>
             </Card>
         ))}
-      
+
     </div>
     </div>
     
