@@ -17,16 +17,18 @@ function App() {
           <Navbar />
           <Switch>
             <Route exact path="/">
-              {user &&<Home />}{!user && <Redirect to ='/login'/>}
+              {user ? <Home /> : <Redirect to ='/login' />}
+            
             </Route>
-            <Route path="/signup">
-              {!user &&<Signup />}
+            <Route path="/signup">   
+              {!user ?<Signup />: <Redirect to ='/signup' />}
+              {user ? <Home />: <Redirect to ='/' />}
+            </Route>
+
+            {/* <Route path="/login">
+              
               {user && <Redirect to ='/' />}
-            </Route>
-            <Route path="/login">
-              {!user &&<Login />}
-              {user && <Redirect to ='/' />}
-            </Route>
+            </Route> */}
           </Switch>
         </BrowserRouter>
       )}
