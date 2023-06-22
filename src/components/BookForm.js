@@ -1,11 +1,11 @@
 import { useState } from 'react'
 import {db} from '../firebase/config';
 import { collection, addDoc } from 'firebase/firestore';
-import  '../images/smile.jpg';
+
 import happy from '../images/smile.jpg'
-// import sad from '../images/sad.jpg'
-// import sick from '../images/sick.jpg'
-// import mad from '../images/angry.jpg'
+import sad from '../images/sad.jpg'
+import sick from '../images/sick.jpg'
+import mad from '../images/angry.jpg'
 
 
 import { useAuthContext
@@ -46,9 +46,9 @@ export default function BookForm() {
     setNewMoodEmoji()
   }
   let emojis = [
-  { id: 1, name: 'happy', image: '../images/smile.jpg' },
-  { id: 2, name: 'sad', image: 'gs://book-list-8c209.appspot.com/sad.jpg' },
-  { id: 3, name: 'sick', image: 'gs://book-list-8c209.appspot.com/sick.jpg' },
+  { id: 1, name: 'happy', image: '../images/smile.jpg'},
+  { id: 2, name: 'sad', image: '../images/sad.jpg' },
+  { id: 3, name: 'sick', image: '../images//sick.jpg' },
   { id: 4, name: 'mad', image: 'gs://book-list-8c209.appspot.com/angry.jpg' },
 ];
 
@@ -89,19 +89,21 @@ export default function BookForm() {
  <div className='emojis'>
   
 
-    {emojis.map((currEmoji) => (
-      
-      <label>
-        <input
-          type='radio'
-          classNme='emoti'
+ {emojis.map((currEmoji, index) => (      
+    <label key={`emo-${index}`}>
+      <input
+             type='radio'
+          className='emoti'
           key={currEmoji.id}
           name={currEmoji.name}
           src={currEmoji.image}
-          unchecked
+          unchecked="true"
           onChange={(e) => setNewMoodEmoji(currEmoji.image)}
         />
-        <img src={happy} alt='Option 1' />
+        <img src={happy} alt='emoji choice' />
+        <img src={sad} alt='emoji choice' />
+        <img src={sick} alt='emoji choice' />
+        <img src={mad} alt='emoji choice' />
       </label>
     ))}
   </div>

@@ -9,7 +9,7 @@ export default function BookList({books}) {
   
 // const {documents: books } = useCollection(
 //   'books',
-//   ['uid', '==', user.uid])
+//   ['uid', '==', user.uid], 'emoji' === book.emoji)
 
 
   const handleClick = async (id) => {
@@ -34,7 +34,7 @@ export default function BookList({books}) {
 
             <h4 className="card-subtitle mb-2 text-muted">{book.title}</h4>
             <p className="card-text">{book.notes}</p>
-            <pimg className='emoji'src={book.emoji} />
+            <img className='emoji'src={book.emoji}alt='emoji choice' />
             </div>
             </Card>
         ))}
