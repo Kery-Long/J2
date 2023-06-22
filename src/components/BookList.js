@@ -34,7 +34,8 @@ export default function BookList({books}) {
 
             <h4 className="card-subtitle mb-2 text-muted">{book.title}</h4>
             <p className="card-text">{book.notes}</p>
-            <img className='emoji'src={book.emoji}alt='emoji choice' />
+            <div><img className='emoji' src={book.emoji} alt='emoji choice' />
+            </div>
             </div>
             </Card>
         ))}
